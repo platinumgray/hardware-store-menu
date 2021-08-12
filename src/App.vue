@@ -1,15 +1,19 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <Menu :menuItems="menuItems" />
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
+import Menu from "@/components/Menu";
+import menuItems from "@/menu.json";
 export default {
   name: "App",
+  data() {
+    return {
+      menuItems,
+    };
+  },
   components: {
-    HelloWorld,
+    Menu,
   },
 };
 </script>
@@ -22,5 +26,13 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+a {
+  text-decoration: none;
+  color: #2c3e50;
+}
+
+* {
+  box-sizing: border-box;
 }
 </style>

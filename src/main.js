@@ -1,4 +1,4 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-
-createApp(App).mount("#app");
+import VueLazyLoad from "vue3-lazyload";
+createApp(App).use(VueLazyLoad).mount("#app");
