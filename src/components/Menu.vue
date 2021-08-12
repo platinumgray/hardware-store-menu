@@ -48,6 +48,7 @@ export default {
       hoveredIndex: -1,
       q: "",
       show: false,
+      offsetTop: 0,
     };
   },
   props: {
@@ -79,7 +80,7 @@ export default {
     },
     submenuClass() {
       return {
-        "margin-top": `${this.hoveredIndex * 40}px`,
+        "margin-top": `${this.offsetTop}px`,
       };
     },
   },
@@ -104,7 +105,13 @@ export default {
       return acc;
     },
     setHoveredIndex(e, index) {
+      console.log(
+        "🚀 ~ file: Menu.vue ~ line 116 ~ setHoveredIndex ~ e.target",
+        e.target
+      );
+
       this.hoveredIndex = index;
+      this.offsetTop = (e.target.offsetHeight + 2) * this.hoveredIndex;
     },
   },
 };
@@ -150,7 +157,6 @@ li {
   display: flex;
   flex-direction: row;
 }
-
 
 .material-icons {
   transition: transform 0.2s ease-in-out;
